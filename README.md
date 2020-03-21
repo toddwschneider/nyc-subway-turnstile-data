@@ -4,7 +4,7 @@ Download NYC subway turnstile data files from [the MTA's website](http://web.mta
 
 Hastily put together in March 2020, structured as a Rails app but the only functionality is to download files and load them into a Postgres table called `turnstile_observations`
 
-The repo does not currently suppor the MTA file formats for the time period 5/5/2010–10/11/2014
+The repo does not currently support the MTA file formats for the time period 5/5/2010–10/11/2014
 
 ## Initialize database
 
