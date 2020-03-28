@@ -32,3 +32,7 @@ After importing files, you have to run another query to set the `net_entries` an
 ```rb
 TurnstileObservation.set_net_entries_and_net_exits
 ```
+
+## Example summary image
+
+![nyc subway turnstiles](https://user-images.githubusercontent.com/70271/77835915-eea9f380-7127-11ea-856a-85c62323ee36.png)
