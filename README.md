@@ -6,6 +6,10 @@ Hastily put together in March 2020, structured as a Rails app but the only funct
 
 The repo does not currently support the MTA file formats for the time period 5/5/2010–10/11/2014
 
+## Dashboard
+
+[See here for a dashboard with up-to-date graphs](https://toddwschneider.com/dashboards/nyc-subway-turnstiles/). Data updates weekly on Saturday mornings.
+
 ## Initialize database
 
 `bundle exec rake db:setup`
@@ -32,7 +36,3 @@ After importing files, you have to run another query to set the `net_entries` an
 ```rb
 TurnstileObservation.set_net_entries_and_net_exits
 ```
-
-## Example summary image
-
-![nyc subway turnstiles](https://user-images.githubusercontent.com/70271/77835915-eea9f380-7127-11ea-856a-85c62323ee36.png)
