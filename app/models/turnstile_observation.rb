@@ -98,7 +98,7 @@ class TurnstileObservation < ApplicationRecord
     subway.
       where.not(net_entries: nil).
       select("
-        date_trunc('week', observed_at)::date AS week,
+        date_trunc('week', observed_at + '2 days'::interval)::date - '2 days'::interval AS week,
         sum(net_entries) AS entries
       ").
       group(:week).
