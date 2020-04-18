@@ -10,10 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_21_015926) do
+ActiveRecord::Schema.define(version: 2020_04_14_215330) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "stations", force: :cascade do |t|
+    t.text "name", null: false
+    t.text "line_names", null: false
+    t.text "division", null: false
+    t.text "borough", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["borough"], name: "index_stations_on_borough"
+    t.index ["name", "line_names", "division"], name: "index_stations_on_name_and_line_names_and_division", unique: true
+  end
 
   create_table "turnstile_observations", force: :cascade do |t|
     t.text "control_area", null: false
@@ -34,6 +45,7 @@ ActiveRecord::Schema.define(version: 2020_03_21_015926) do
     t.index ["control_area", "scp", "observed_at", "description"], name: "index_turnstile_observations_unique", unique: true
     t.index ["division"], name: "index_turnstile_observations_on_division"
     t.index ["filename"], name: "index_turnstile_observations_on_filename"
+    t.index ["station", "line_names", "division"], name: "index_turnstile_observations_on_subway_station"
   end
 
 end
