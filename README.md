@@ -14,6 +14,10 @@ The repo does not currently support the MTA file formats for the time period 5/5
 
 `bundle exec rake db:setup`
 
+## Station => Borough mapping
+
+`lib/stations.csv` includes a manual mapping of station to borough name for every observed unique combination of `station`/`line_names`/`division` in the raw data. It is used to seed the `stations` table, which can then be joined to the `turnstile_observations` table to calculate aggregates by borough
+
 ## Example usage
 
 From the Rails console, import a single file:
