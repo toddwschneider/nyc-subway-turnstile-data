@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_14_215330) do
+ActiveRecord::Schema.define(version: 2021_10_02_103104) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -22,8 +22,10 @@ ActiveRecord::Schema.define(version: 2020_04_14_215330) do
     t.text "borough", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.text "subregion"
     t.index ["borough"], name: "index_stations_on_borough"
     t.index ["name", "line_names", "division"], name: "index_stations_on_name_and_line_names_and_division", unique: true
+    t.index ["subregion"], name: "index_stations_on_subregion"
   end
 
   create_table "turnstile_observations", force: :cascade do |t|

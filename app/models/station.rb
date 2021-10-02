@@ -20,6 +20,7 @@ class Station < ApplicationRecord
       )
 
       station.borough = row.fetch(:borough)
+      station.subregion = row.fetch(:subregion)
 
       station.save!
     end

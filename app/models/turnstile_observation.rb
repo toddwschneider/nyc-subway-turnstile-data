@@ -126,6 +126,28 @@ class TurnstileObservation < ApplicationRecord
       map { |o| [o.week.to_date, o.borough, o.entries&.to_i] }
   end
 
+  def self.weekly_subway_entries_by_manhattan_subregion
+    query = <<-SQL
+      SELECT
+        s.borough,
+        s.subregion,
+        date_trunc('week', o.observed_at + '2 days'::interval)::date - '2 days'::interval AS week,
+        sum(o.net_entries) AS entries
+      FROM turnstile_observations o
+        LEFT JOIN stations s
+          ON o.station = s.name
+          AND o.line_names = s.line_names
+          AND o.division = s.division
+      WHERE o.division IN (:subway_divisions)
+        AND s.borough = 'Manhattan'
+      GROUP BY 1, 2, 3
+      ORDER BY 1, 2, 3
+    SQL
+
+    find_by_sql([query, subway_divisions: SUBWAY_DIVISIONS]).
+      map { |o| [o.week.to_date, o.borough, o.subregion, o.entries&.to_i] }
+  end
+
   private
 
   def self.pg_connection
