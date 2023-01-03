@@ -7,7 +7,7 @@ gem 'rails', '~> 6.0.2', '>= 6.0.2.1'
 
 gem 'bootsnap', '>= 1.4.2', require: false
 gem 'down', '~> 5.1'
-gem 'httparty', '~> 0.18'
+gem 'httparty', '~> 0.21'
 gem 'nokogiri', '~> 1.13'
 gem 'pg', '>= 0.18', '< 2.0'
 gem 'puma', '~> 4.3'
