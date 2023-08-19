@@ -10,7 +10,7 @@ gem 'down', '~> 5.1'
 gem 'httparty', '~> 0.21'
 gem 'nokogiri', '~> 1.13'
 gem 'pg', '>= 0.18', '< 2.0'
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 5.6'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
